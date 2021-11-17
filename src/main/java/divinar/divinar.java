@@ -32,7 +32,7 @@ public class divinar {
             solicitarDatos = true;
             try {
                 // Bloque de código candidato a lanzar la excepción
-                System.out.println("Introduce un numero ");
+                System.out.println("Introduce un numero devinado");
                 numero = sc.nextInt();
                 solicitarDatos = false;
             } catch (InputMismatchException ime) {
@@ -48,24 +48,27 @@ public class divinar {
     public static void main(String[] args) {
         int numero, contador = 0;
         int a, b, numeroAleatorio;
+        Scanner sc=new Scanner(System.in);
             //pedir el rango del numero aleatorio
-            a = pedirDatos();
-            b = pedirDatos();
+            System.out.println("Introduce numero Min" );
+            a =sc.nextInt();
+            System.out.println("Introduce numero Max" );
+            b =sc.nextInt();
             numeroAleatorio = GeneraAleatorio(a, b);
-            System.out.println("el numero aleatorio:" + numeroAleatorio);
+            
             
         do {
             //pedir el numero
             numero = pedirDatos();
-
+            
             if (numero > numeroAleatorio) {
-                System.out.println("El numero y mas pequiño:" + numero);
+                System.out.println("El numero y mas pequiño de " + numero);
                 contador++;
             } else if(numero < numeroAleatorio){
-                System.out.println("El numero mas grande");  
+                System.out.println("El numero mas grande de "+numero);  
                 contador++;    
             }else{
-                System.out.println("Bien!! eso es el numero aleatorio");
+                System.out.println("Bien!! eso es el numero aleatorio "+numeroAleatorio);             
                 System.out.println("Termina");
                 break;
             }
@@ -74,6 +77,7 @@ public class divinar {
         
         if(contador==3){
             System.out.println("Has perdido");
+            System.out.println("el numero aleatorio:" + numeroAleatorio);
         }
     }
 }
